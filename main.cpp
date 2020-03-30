@@ -2,7 +2,6 @@
 using namespace std;
 #include <stdio.h>
 #include <cstdlib>
-#include <conio.h>
 #include "czas.h"
 #include "obrabiarka.h"
 

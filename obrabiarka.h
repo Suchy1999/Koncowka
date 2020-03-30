@@ -10,7 +10,8 @@ class Obrabiarka  //klasa - definicja, opis
     int IloscCzasow;                            //oraz jego nazwy i wielkosci "kontenera"
 
     public:
-    //konstruktor
+    //konstruktory
+    Obrabiarka();
     Obrabiarka(int _ile);
 
     //konstruktor kopiujacy i operator przypisania zgodny z Etap 4 pkt 1
@@ -26,6 +27,8 @@ class Obrabiarka  //klasa - definicja, opis
     //funkcja dodawania czasu do listy
     void wrzuc_do_listy(Czas obx);
 
+    void pop();
+
     //podglad
     void podgladacz();
 
@@ -37,7 +40,7 @@ class Obrabiarka  //klasa - definicja, opis
 
    // pomocnicza do kopia
     Czas plusik(int _ile);
-    //kopia „obrabiarki” zawieraj¹ca tylko pierwsze n czasów
+    //kopia ï¿½obrabiarkiï¿½ zawierajï¿½ca tylko pierwsze n czasï¿½w
     Obrabiarka kopia_n_czasow();
 
     //kopia "obrabiarki" zawierajace poczatkowe elementy, ktorych

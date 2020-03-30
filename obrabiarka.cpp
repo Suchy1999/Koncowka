@@ -6,6 +6,11 @@
 
 using namespace std;
 //konstruktor
+
+Obrabiarka::Obrabiarka(){
+    IloscCzasow = 0;
+}
+
 Obrabiarka::Obrabiarka(int _ile)
 {
     IloscCzasow=_ile;
@@ -29,6 +34,10 @@ void Obrabiarka::wrzuc_do_listy(Czas obx)
     zbiorCzasow.push_back(obx);
 }
 
+void Obrabiarka::pop(){
+    zbiorCzasow.pop_back();
+}
+
 
 //cialo wyswietlania zawartosci obiektu klasy obrabiarka
 
@@ -50,7 +59,7 @@ void Obrabiarka::dokladny_podgladacz()
     cout << "Ktory czas chcesz podejrzec?" << endl;
     cin >> w;
     w=w-1;
-    if(w>=zbiorCzasow.size()||w<0)
+    if(w >= (int)zbiorCzasow.size()||w<0)
     {
         cout << "Wybrales numer spoza listy"<<endl;
     }
@@ -119,12 +128,12 @@ Obrabiarka Obrabiarka::kopia_n_czasow()
  }
 
 
-//cia³o stopera
+//ciaï¿½o stopera
 void Obrabiarka::stoper()
 {
 
 Czas zegarek;
-Obrabiarka replika();
+Obrabiarka replika;
 
     int g,m,s,i;
     cout << "\nPodaj czas \n";
@@ -136,13 +145,13 @@ Obrabiarka replika();
     zegarek.wyswietl();
 
 
-    for (i=0; replika.plusik(i)<zegarek && i<zbiorCzasow.size();i++)
+    for (i=0; replika.plusik(i) < zegarek && i < (int)zbiorCzasow.size();i++)
     {
-        replika.push_back(zbiorCzasow.at(i));
+        replika.wrzuc_do_listy(zbiorCzasow.at(i));
     }
-    if (z<replika.plusik())
+    if (zegarek < replika.plusik(IloscCzasow))
     {
-        replika.pop_back();
+        replika.pop();
     }
 }
 
